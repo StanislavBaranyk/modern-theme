@@ -1,0 +1,16 @@
+{% sw_extends "@Storefront/storefront/component/product/properties.html.twig" %}
+
+        {% block component_product_properties_container %}
+<div class="row product-detail-properties-container">
+	  {% block component_product_properties_title %}
+			<h2 class="product-detail-description-title">
+				  {{ 'detail.navLinkProperties'|trans|sw_sanitize }} "{{ product.translated.name }}"
+			</h2>
+	  {% endblock %}
+	  <div class="col-md-10 col-lg-6">
+			{% block component_product_properties_table %}
+			{{ parent() }}
+              {% endblock %}
+	  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+  "name": "ModernThemeProductSalePage",
+  "author": "Shopware AG",
+  "views": [
+    "@Storefront",
+    "@Plugins",
+    "@ModernThemeProductSalePage"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/modern-theme-product-sale-page/modern-theme-product-sale-page.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ]
+}

@@ -1,0 +1,20 @@
+@import "tab-content";
+@import "product-heading";
+@import "gallery-buybox";
+@import "buy-widget";
+
+body {
+  background-color: #eef2f5;
+  font-size: 16px;
+}
+
+.pos-0 {
+  border-top:1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+}
+.pos-1 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+

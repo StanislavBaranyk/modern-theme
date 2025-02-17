@@ -1,0 +1,13 @@
+{% sw_extends "@Storefront/storefront/block/cms-block-gallery-buybox.html.twig" %}
+
+ {% block block_gallery_buybox_column_right %}
+	   {% set element = block.slots.getSlot('right') %}
+	   <div class="col-lg-5 product-detail-buy" data-cms-element-id="{{ element.id }}">
+			 {% block block_gallery_buybox_column_right_inner %}
+				   {% sw_include '@Storefront/storefront/element/cms-element-' ~ element.type ~ '.html.twig' ignore missing %}
+			 {% endblock %}
+
+			 {%  block block_gallery_benefits_column_right_inner %}
+			 {% endblock %}
+	   </div>
+ {% endblock %}

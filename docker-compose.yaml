@@ -1,0 +1,23 @@
+version: "3"
+services:
+  shopware:
+    image: dockware/dev:6.6.9.0
+    container_name: modern_theme
+    volumes:
+      - "./:/var/www/html/"
+    ports:
+      - "8888:8888"
+      - "9999:9999"
+      - "9998:9998"
+      - "9001:9000"
+      - "23:22"
+      - "80:80"
+    networks:
+      - web
+    environment:
+      - XDEBUG_ENABLED=1
+      - PHP_VERSION=8.3
+      - NODE_VERSION=20
+networks:
+  web:
+    external: false

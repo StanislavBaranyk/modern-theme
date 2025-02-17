@@ -1,0 +1,29 @@
+.product-detail-ordernumber-container, .product-detail-manufacturer-container, .product-detail-availableStock-container, .product-detail-minPurchase-container, .product-detail-benefits-container, .product-detail-share-method-container {
+  margin-bottom: 0;
+
+  .product-detail-benefits-content, .product-detail-share-method-content {
+    ul {
+      padding: 0;
+      li {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+
+.product-detail-benefits-container {
+  margin-bottom: 32px;
+  margin-top: 32px;
+
+  .product-detail-benefits-title {
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+}
+

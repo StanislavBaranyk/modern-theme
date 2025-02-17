@@ -1,0 +1,53 @@
+{# {% set x = product.customFields|filter((value, key) => key starts with 'custom_field_for_places_product') %} #}
+{# {{ dump(x) }} #}
+
+{# {{ dump(product) }} #}
+
+
+    {% block component_product_manufacturer_container %}
+		  <div class="product-detail-manufacturer tab-pane-container d-flex raw">
+		  {%  block component_product_manufacture_col_left %}
+				<div class="product-detail-manufacturer-col-left col">
+				{% block component_product_manufacturer_title %}
+					  <h2 class="product-detail-manufacturer-title">
+							{{ 'detail.productManufacturer'|trans|sw_sanitize }} "{{ product.manufacturer.name }}"
+					  </h2>
+				{% endblock %}
+				{% block component_product_manufacturer_content %}
+				<div class="product-detail-manufacturer-content">
+				{% block component_product_manifacturer_content_text %}
+							{% set x = product.manufacturer.description %}
+							{{ x|raw }}
+					  {% endblock %}
+				</div>
+				{% endblock %}
+				{% block component_product_manufacture_link %}
+					  <div class="product-detail-manufacturer-link">
+{#							{{ dump(product.manufacturer) }}#}
+							<h5>Related links of the manufacturer</h5>
+							<a href="{{ product.manufacturer.link }}">Manufacturer website</a>
+					  </div>
+					  </div>
+				{% endblock %}
+		  {% endblock %}
+		  {% block component_product_manufacture_right %}
+				<div class="product-detail-manufacturer-col-right">
+					  <a class="cms-link-image" href="{{ product.manufacture.link }}">
+							<img  src="{{ product.manufacturer.media.url|raw }}">
+					  </a>
+				</div>
+				{% endblock %}
+		  </div>
+	{% endblock %}
+
+
+
+
+{#{% set x = ["benefits.shipping", "benefits.ShippingTime", "benefits.guarantee", "benefits.comfortable"] %}#}
+{#{% for i in x %}#}
+{#	  <p>{{ i|trans|raw }}</p>#}
+{#{% endfor %}#}
+
+
+
+

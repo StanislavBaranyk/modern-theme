@@ -1,0 +1,135 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+{% block buy_widget %}
+	  <div class="product-detail-buy{% if elementId %}-{{ elementId }}{% endif %} js-magnifier-zoom-image-container">
+			{% block buy_widget_rich_snippets %}
+				  {{ parent() }}
+			{% endblock %}
+
+			{% block buy_widget_buy_container %}
+				  {{ parent() }}
+			{% endblock %}
+
+			{% if config('core.cart.wishlistEnabled') %}
+				  {% block buy_widget_wishlist %}
+						{{ parent() }}
+				  {% endblock %}
+			{% endif %}
+
+			{% block buy_widget_ordernumber_container %}
+				  {{ parent() }}
+			{% endblock %}
+
+			{% block buy_widget_manufacturer_container %}
+				  {% if product.manufacturer.name %}
+						<div class="product-detail-manufacturer-container">
+							  {% block buy_widget_manufacturer_label %}
+									<b class="product-detail-manufacturer-label">
+										  {{ 'detail.productManufacturer'|trans|sw_sanitize }}
+									</b>
+							  {% endblock %}
+
+							  {% block buy_widget_manufacturer %}
+									<meta itemprop="productID"
+										  content="{{ product.id }}">
+									<span class="product-detail-manufacturer"
+										  itemprop="sku">
+                            {{ product.manufacturer.name }}
+                        </span>
+							  {% endblock %}
+						</div>
+				  {% endif %}
+			{% endblock %}
+
+			{% block buy_widget_availableStock_container %}
+				  {% if product.availableStock != 0 %}
+						<div class="product-detail-availableStock-container">
+							  {% block buy_widget_availableStock_label %}
+									<b class="product-detail-availableStock-label">
+										  {{ 'detail.productavailableStock'|trans|sw_sanitize }}
+									</b>
+							  {% endblock %}
+
+							  {% block buy_widget_availableStock %}
+									<meta itemprop="productID"
+										  content="{{ product.id }}">
+									<span class="product-detail-availableStock"
+										  itemprop="sku">
+                            {{ product.availableStock|trans }}
+                        </span>
+							  {% endblock %}
+						</div>
+				  {% endif %}
+			{% endblock %}
+
+			{% block buy_widget_minPurchase_container %}
+				  {% if product.minPurchase != 0 %}
+						<div class="product-detail-minPurchase-container">
+							  {% block buy_widget_minPurchase_label %}
+									<b class="product-detail-minPurchase-label">
+										  {{ 'detail.productMinPurchase'|trans|sw_sanitize }}
+									</b>
+							  {% endblock %}
+
+							  {% block buy_widget_minPurchase %}
+									<meta itemprop="productID"
+										  content="{{ product.id }}">
+									<span class="product-detail-minPurchase"
+										  itemprop="sku">
+                            {{ product.minPurchase|trans }}
+                        </span>
+							  {% endblock %}
+						</div>
+				  {% endif %}
+			{% endblock %}
+
+			{% block buy_widget_benefits_container %}
+				  <div class="product-detail-benefits-container">
+						{% block buy_widget_benefits_title %}
+							  <div class="product-detail-benefits-title">
+									<h4>{{ "benefits.title"|trans }}</h4>
+							  </div>
+						{% endblock %}
+						{% block buy_widget_benefits_content %}
+							  <div class="product-detail-benefits-content">
+									<ul>
+										  {% set benefitSnippetsItems = ["benefits.shipping", "benefits.ShippingTime", "benefits.guarantee", "benefits.comfortable"] %}
+										  {% for i in benefitSnippetsItems %}
+												<li>
+										  <span>{% sw_icon 'checkmark' style {
+													  'namespace': 'TestPlugin',
+												} %}</span> {{ i|trans }}
+												</li>
+										  {% endfor %}
+
+									</ul>
+							  </div>
+						{% endblock %}
+				  </div>
+			{% endblock %}
+
+			{% block buy_widget_share_method_container %}
+				  <div class="product-detail-share-method-container">
+			{% block buy_widget_share_method_title %}
+				  <div class="product-detail-share-method-title">{{ "globalSnippets.shareMethod"|trans }}</div>
+				  {% endblock %}
+						{% block buy_widget_share_method_content %}
+				  <div class="">
+						<ul class="share-methods">
+							  {% set shareMethods = ["facebook-icon", "x-icon", "pinterest-icon", "whatsApp-icon", "email-icon"] %}
+							  {% for i in shareMethods %}
+									<li class="share-method">
+										  <a href="#">
+												<span class="share-method-icon">
+													  {{ sw_icon_cache_enable(i, {'namespace': 'ModernThemeProductSalePage'}) }}
+												</span>
+										  </a>
+									</li>
+							  {% endfor %}
+
+						</ul>
+				  </div>
+				  {% endblock %}
+				  </div>
+			{% endblock %}
+	  </div>
+{% endblock %}
